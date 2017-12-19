@@ -8,18 +8,18 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.izzyleung.MySearchView;
 import io.github.izzyleung.zhihudailypurify.R;
 import io.github.izzyleung.zhihudailypurify.bean.DailyNews;
 import io.github.izzyleung.zhihudailypurify.observable.NewsListFromSearchObservable;
 import io.github.izzyleung.zhihudailypurify.ui.fragment.SearchNewsFragment;
-import io.github.izzyleung.zhihudailypurify.ui.widget.IzzySearchView;
 import rx.Observer;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class SearchActivity extends BaseActivity implements Observer<List<DailyNews>> {
-    private IzzySearchView searchView;
+    private MySearchView searchView;
     private SearchNewsFragment searchNewsFragment;
     private ProgressDialog dialog;
 
@@ -59,7 +59,7 @@ public class SearchActivity extends BaseActivity implements Observer<List<DailyN
     }
 
     private void initView() {
-        searchView = new IzzySearchView(this);
+        searchView = new MySearchView(this);
         searchView.setQueryHint(getResources().getString(R.string.search_hint));
         searchView.setOnQueryTextListener(query -> {
             dialog.show();

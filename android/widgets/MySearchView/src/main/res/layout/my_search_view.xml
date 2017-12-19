@@ -33,7 +33,7 @@
 
             <view
                 android:id="@+id/search_src_text"
-                class="io.github.izzyleung.zhihudailypurify.ui.widget.IzzySearchView$SearchAutoComplete"
+                class="io.github.izzyleung.MySearchView$SearchAutoComplete"
                 android:layout_width="0.0dip"
                 android:layout_height="36.0dip"
                 android:layout_gravity="bottom"

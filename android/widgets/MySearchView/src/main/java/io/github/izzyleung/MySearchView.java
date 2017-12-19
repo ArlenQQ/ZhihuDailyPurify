@@ -1,5 +1,6 @@
-package io.github.izzyleung.zhihudailypurify.ui.widget;
+package io.github.izzyleung;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Rect;
@@ -21,13 +22,7 @@ import android.widget.LinearLayout;
 
 import java.lang.reflect.Method;
 
-import io.github.izzyleung.zhihudailypurify.R;
-
-/**
- * Simplified version of SearchView, only EditText and a clear text button is supported
- * Thanks to code of SearchView in AppCompat
- */
-public class IzzySearchView extends LinearLayout {
+public class MySearchView extends LinearLayout {
     static final AutoCompleteTextViewReflector HIDDEN_METHOD_INVOKER = new AutoCompleteTextViewReflector();
 
     private boolean mClearingFocus;
@@ -42,22 +37,22 @@ public class IzzySearchView extends LinearLayout {
                 getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
 
         if (imm != null) {
-            HIDDEN_METHOD_INVOKER.showSoftInputUnchecked(imm, IzzySearchView.this, 0);
+            HIDDEN_METHOD_INVOKER.showSoftInputUnchecked(imm, MySearchView.this, 0);
         }
     };
 
     private Runnable mUpdateDrawableStateRunnable = this::updateFocusedState;
 
-    public IzzySearchView(Context context) {
+    public MySearchView(Context context) {
         this(context, null);
     }
 
-    public IzzySearchView(Context context, AttributeSet attrs) {
+    public MySearchView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.izzy_search_view, this, true);
+        inflater.inflate(R.layout.my_search_view, this, true);
 
         mQueryTextView = findViewById(R.id.search_src_text);
         mQueryTextView.setSearchView(this);
@@ -243,16 +238,17 @@ public class IzzySearchView extends LinearLayout {
         boolean onQueryTextSubmit(String query);
     }
 
+    @SuppressLint("AppCompatCustomView")
     public static class SearchAutoComplete extends AutoCompleteTextView {
         private int mThreshold;
-        private IzzySearchView mSearchView;
+        private MySearchView mSearchView;
 
         public SearchAutoComplete(Context context, AttributeSet attrs) {
             super(context, attrs);
             mThreshold = getThreshold();
         }
 
-        void setSearchView(IzzySearchView searchView) {
+        void setSearchView(MySearchView searchView) {
             mSearchView = searchView;
         }
 

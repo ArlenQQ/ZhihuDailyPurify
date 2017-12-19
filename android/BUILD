@@ -1,13 +1,26 @@
 custom_package = "io.github.izzyleung.zhihudailypurify"
-resource_files = glob(["app/src/main/res/**"])
-manifest = "app/src/main/AndroidManifest.xml"
+
+filegroup(
+  name = "android_code",
+  srcs = glob(["app/src/main/java/**/*.java"]),
+)
+
+filegroup(
+  name = "resource_files",
+  srcs = glob(["app/src/main/res/**"]),
+)
+
+filegroup(
+  name = "manifest",
+  srcs = ["app/src/main/AndroidManifest.xml"],
+)
 
 android_library(
   name = "activities",
   custom_package = custom_package,
-  srcs = glob(["app/src/main/java/**/*.java"]),
-  manifest = manifest,
-  resource_files = resource_files,
+  srcs = [":android_code"],
+  manifest = ":manifest",
+  resource_files = [":resource_files"],
   deps = [
     "//android/widgets:all_widgets",
     "//third_party:android_app_dependencies",
@@ -17,8 +30,8 @@ android_library(
 android_binary(
   name = "android",
   custom_package = custom_package,
-  manifest = manifest,
-  resource_files = resource_files,
+  manifest = ":manifest",
+  resource_files = [":resource_files"],
   deps = [
     "//android/widgets:all_widgets",
     "//third_party:android_app_dependencies",

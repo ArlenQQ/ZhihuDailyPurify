@@ -82,11 +82,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.CardViewHolder
                 MenuInflater inflater = popup.getMenuInflater();
                 inflater.inflate(R.menu.contextual_news_list, popup.getMenu());
                 popup.setOnMenuItemClickListener(item -> {
-                    switch (item.getItemId()) {
-                        case R.id.action_share_url:
-                            share(context, position);
-                            break;
+
+                    if (item.getItemId() == R.id.action_share_url) {
+                        share(context, position);
                     }
+                    
                     return true;
                 });
                 popup.show();

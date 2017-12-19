@@ -50,13 +50,15 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                return prepareIntent(PrefsActivity.class);
-            case R.id.action_go_to_search:
-                return prepareIntent(SearchActivity.class);
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.action_settings) {
+            return prepareIntent(PrefsActivity.class);
+        } else if (itemId == R.id.action_go_to_search) {
+            return prepareIntent(SearchActivity.class);
+        } else {
+            return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     private boolean prepareIntent(Class clazz) {

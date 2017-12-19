@@ -1,4 +1,4 @@
-load("//third_party:maven_rules.bzl", "maven_aar", "maven_jar")
+load("@bazel_tools//tools/build_defs/repo:maven_rules.bzl", "maven_aar", "maven_jar")
 
 def generate_maven_dependencies():
   maven_aar(

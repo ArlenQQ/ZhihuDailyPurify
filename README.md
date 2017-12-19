@@ -23,14 +23,14 @@ __Disclaimer - 声明__
   - Java Development Kit (JDK)
   - Android SDK
     - Android SDK Build-tools
-    - Android Support Repository
+  - Bazel
+  - Maven
 
 Set `ANDROID_HOME` environment variable properly - 将 `ANDROID_HOME` 环境变量指向你的 Android SDK 目录  
-Always use the latest version of them - 永远使用它们的最新版本
 
 
 ## Build - 构建
-`./gradlew assemble`  
+`bazel build //...`  
 
 ## Design Principles - 设计理念
   - Less is more - 更少即更多

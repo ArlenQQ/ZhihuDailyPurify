@@ -219,3 +219,35 @@ def generate_maven_dependencies():
       "@rxjava//jar",
     ]
   )
+
+def setup_android_app_dependencies():
+  native.android_library(
+    name = "android_app_dependencies",
+    visibility = ["//visibility:public"],
+    exports = [
+      "@com_android_support_support_core_utils_27_0_2//aar",
+      "@com_android_support_design_27_0_2//aar",
+      "@com_android_support_support_media_compat_27_0_2//aar",
+      "@com_android_support_support_vector_drawable_27_0_2//aar",
+      "@com_android_support_appcompat_v7_27_0_2//aar",
+      "@com_android_support_cardview_v7_27_0_2//aar",
+      "@com_android_support_transition_27_0_2//aar",
+      "@com_android_support_support_v4_27_0_2//aar",
+      "@com_android_support_animated_vector_drawable_27_0_2//aar",
+      "@android_arch_lifecycle_runtime_1_0_3//aar",
+      "@com_android_support_support_compat_27_0_2//aar",
+      "@com_android_support_support_core_ui_27_0_2//aar",
+      "@com_android_support_support_fragment_27_0_2//aar",
+      "@com_android_support_support_annotations_27_0_2//jar",
+      "@android_arch_core_common_1_0_0//jar",
+      "@com_android_support_recyclerview_v7_27_0_2//aar",
+      "@android_arch_lifecycle_common_1_0_3//jar",
+      "@gson//jar",
+      "@jsoup//jar",
+      "@rxjava//jar",
+      "@universal_image_loader//aar",
+      "@android_times_square//aar",
+      "@recyclerview_stickyheaders//aar",
+      "@rxandroid//aar",
+    ]
+  )
